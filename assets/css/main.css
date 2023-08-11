@@ -2968,106 +2968,109 @@ input, select, textarea {
 
 		}
 
-/* Spotlight */
+/* Shared styles */
+.spotlight {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    margin: 0 0 2em 0;
+}
 
-	.spotlight {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-align-items: center;
-		-webkit-align-items: center;
-		-ms-align-items: center;
-		align-items: center;
-		margin: 0 0 2em 0;
-	}
+.spotlight .image {
+    display: inline-block;
+    padding: 0.65em;
+    border-radius: 100%;
+    border: solid 1px;
+}
 
-		.spotlight .content {
-			-moz-flex: 1;
-			-webkit-flex: 1;
-			-ms-flex: 1;
-			flex: 1;
-		}
+.spotlight .image img {
+    display: block;
+    border-radius: 100%;
+    width: 16em;
+}
 
-			.spotlight .content > :last-child {
-				margin-bottom: 0;
-			}
+.spotlight .content {
+    -moz-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
 
-			.spotlight .content header.major {
-				margin: 0 0 2em 0;
-			}
+.spotlight .content > :last-child {
+    margin-bottom: 0;
+}
 
-		.spotlight .image {
-			display: inline-block;
-			margin-left: 4em;
-			padding: 0.65em;
-			border-radius: 100%;
-			border: solid 1px;
-		}
+.spotlight .content header.major {
+    margin: 0 0 2em 0;
+}
 
-			.spotlight .image img {
-				display: block;
-				border-radius: 100%;
-				width: 16em;
-			}
+/* Spotlight on the left */
+.spotlight.spotlight-left {
+    flex-direction: row;
+}
 
-		@media screen and (max-width: 980px) {
+.spotlight.spotlight-left .image {
+    margin-right: 4em;
+}
 
-			.spotlight {
-				-moz-flex-direction: column-reverse;
-				-webkit-flex-direction: column-reverse;
-				-ms-flex-direction: column-reverse;
-				flex-direction: column-reverse;
-				text-align: center;
-			}
+/* Spotlight on the right */
+.spotlight.spotlight-right {
+    flex-direction: row-reverse;
+}
 
-				.spotlight .content {
-					-moz-flex: 0 1 auto;
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					flex: 0 1 auto;
-					width: 100%;
-				}
+.spotlight.spotlight-right .image {
+    margin-left: 4em;
+}
 
-					.spotlight .content header.major h2:after {
-						margin-left: auto;
-						margin-right: auto;
-					}
+@media screen and (max-width: 980px) {
+    .spotlight {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
 
-					.spotlight .content .actions {
-						-moz-justify-content: center;
-						-webkit-justify-content: center;
-						-ms-justify-content: center;
-						justify-content: center;
-						width: calc(100% + 1em);
-					}
+    .spotlight .content {
+        flex: 0 1 auto;
+        width: 100%;
+    }
 
-				.spotlight .image {
-					-moz-flex: 0 1 auto;
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					flex: 0 1 auto;
-					margin-left: 0;
-					margin-bottom: 2em;
-				}
+    .spotlight .content header.major h2:after {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-		}
+    .spotlight .content .actions {
+        justify-content: center;
+        width: calc(100% + 1em);
+    }
 
-		@media screen and (max-width: 736px) {
+    .spotlight .image {
+        flex: 0 1 auto;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 2em;
+    }
+}
 
-			.spotlight .image {
-				padding: 0.35em;
-			}
+@media screen and (max-width: 736px) {
+    .spotlight .image {
+        padding: 0.35em;
+    }
 
-				.spotlight .image img {
-					width: 12em;
-				}
+    .spotlight .image img {
+        width: 12em;
+    }
+}
 
-		}
+.spotlight .image {
+    border-color: rgba(255, 255, 255, 0.35);
+}
 
-	.spotlight .image {
-		border-color: rgba(255, 255, 255, 0.35);
-	}
+
 
 /* Header */
 
@@ -3118,10 +3121,20 @@ input, select, textarea {
 				margin: 0 0 1.5em 0;
 			}
 
-				#header.alt .logo img {
+				#header.alt .logo {
 					display: block;
 					margin: 0 auto;
-					max-width: 75%;
+					max-width: 25%;
+					border-radius: 50%;
+					width: 200px;
+					height: 200px;
+					overflow: hidden;
+				}
+
+				#header.alt .logo img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
 				}
 
 		@media screen and (max-width: 1280px) {
